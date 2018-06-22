@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 import './Tapbox.dart';
+import './Cat.dart';
 
 class CatListItem extends StatelessWidget {
 
-  final int catId;
-  final String catName;
-  final String owner;
-  final String picture;
-  final String introduction;
+  final Cat cat;
 
-  CatListItem({Key key, this.catId,
-    this.catName,
-    this.owner,
-    this.picture,
-    this.introduction})
-      : super(key: new ObjectKey(catId));
+  CatListItem(this.cat);
 
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = new Container(
-      padding: const EdgeInsets.fromLTRB(12.0, 8.0, 0.0, 0.0),
+    return new Container(
+//      padding: const EdgeInsets.fromLTRB(12.0, 8.0, 0.0, 0.0),
+//      decoration: new BoxDecoration(
+//        border: new Border(
+//            bottom: new BorderSide(
+//              color: Colors.grey,
+//            )
+//        ),
+//      ),
       child: new Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           new Image.network(
-            picture,
+            cat.picture,
             width: 107.0,
             height: 130.0,
           ),
@@ -35,7 +34,7 @@ class CatListItem extends StatelessWidget {
                 new Container(
                   padding: const EdgeInsets.fromLTRB(16.0, 15.0, 24.0, 0.0),
                   child: new Text(
-                    catName,
+                    cat.catName,
                     style: new TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 17.0),
                   ),
@@ -43,7 +42,7 @@ class CatListItem extends StatelessWidget {
                 new Container(
                   padding: const EdgeInsets.fromLTRB(16.0, 16.0, 24.0, 0.0),
                   child: new Text(
-                    '主人:  ' + owner,
+                    '主人:  ' + cat.owner,
                     style: new TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 13.0),
                   ),
@@ -51,7 +50,7 @@ class CatListItem extends StatelessWidget {
                 new Container(
                   padding: const EdgeInsets.fromLTRB(16.0, 18.0, 24.0, 2.0),
                   child: new Text(
-                    introduction,
+                    cat.introduction,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
                     maxLines: 3,
@@ -65,14 +64,12 @@ class CatListItem extends StatelessWidget {
           new Container(
             padding: const EdgeInsets.fromLTRB(30.0, 40.0, 40.0, 0.0),
             child: new Tapbox(
-              catId: catId,
-              catName: catName,
+              catId: cat.catId,
+              catName: cat.catName,
             ),
           ),
         ],
       ),
     );
-
-    return titleSection;
   }
 }

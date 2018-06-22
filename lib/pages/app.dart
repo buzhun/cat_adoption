@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import './Log.dart';
+import './Log.dart';
 import './CatListPage.dart';
 import '../store.dart';
 
@@ -17,8 +19,10 @@ class CatReduxApp extends StatelessWidget {
       store: store,
       child: new MaterialApp(
         title: '宠物收养',
+        theme: new ThemeData(primaryColor: Colors.pink,accentColor: Colors.pinkAccent, ),
         home: new Scaffold(
-          body: new CatListPage(),
+//          body: new Log(),
+          body: new CatListPage('datui'),
         ),
       ),
     );

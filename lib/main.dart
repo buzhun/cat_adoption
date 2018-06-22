@@ -4,8 +4,6 @@ import './store.dart';
 import './pages/app.dart';
 
 void main() {
-  // Create your store as a final variable in a base Widget. This works better
-  // with Hot Reload than creating it directly in the `build` function.
   final store = new Store (AppReducer, initialState: new AppState());
 
   runApp(new CatReduxApp(
